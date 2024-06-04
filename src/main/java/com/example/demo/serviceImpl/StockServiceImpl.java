@@ -53,6 +53,7 @@ public class StockServiceImpl implements StockService {
 
     @Override
     public String createStock(StockDto stockDto) {
+        stockDto.setUpdateTime(LocalDate.now());
         stockRepository.save(convertFromStockDto(stockDto));
         return "stock created successfully";
     }
@@ -90,6 +91,7 @@ public class StockServiceImpl implements StockService {
         Stock stock = new Stock();
         stock.setName(stockDto.getName());
         stock.setAmount(stockDto.getAmount());
+        stock.setUpdateTime(stockDto.getUpdateTime());
         return stock;
     }
 }
