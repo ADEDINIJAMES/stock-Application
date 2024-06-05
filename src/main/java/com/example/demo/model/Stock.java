@@ -8,7 +8,9 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CurrentTimestamp;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @AllArgsConstructor
@@ -22,8 +24,7 @@ public class Stock {
     private Long id;
     private String name;
     private BigDecimal amount;
-    @CurrentTimestamp
-    private LocalDate createTime;
-    private LocalDate updateTime;
+    private LocalDateTime createTime;
+    private Timestamp updateTime;
 
 }

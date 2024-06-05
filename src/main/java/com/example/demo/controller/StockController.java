@@ -34,8 +34,14 @@ public class StockController {
 }
 
 @GetMapping("/stocks")
-    public ResponseEntity<Page<StockDto>> getAll (Pageable pageable){
-return ResponseEntity.ok(stockService.getAllStocksPaged(pageable));
+    public ResponseEntity<Page<StockDto>> getAll (
+            @RequestParam (name = "pageNo", defaultValue = "0") int pageNo,
+            @RequestParam (name = "PageSize", defaultValue = "10") int pageSize,
+            @RequestParam (name = "direction", defaultValue = "asc") String direction,
+            @RequestParam (name = "sortBy", defaultValue = "updateTime", required = false) String sortBy
+
+){
+return ResponseEntity.ok(stockService.getAllStocksPaged(pageNo,pageSize,direction,sortBy));
 }
 @GetMapping("/stocks-paged")
     public ResponseEntity<List<StockDto>> getListOfStock(){

@@ -11,5 +11,5 @@ public interface StockService {
     StockDto getStock (Long id);
     String createStock (StockDto stockDto);
     String updateStock (Long id, StockDto stockDto);
-    Page<StockDto> getAllStocksPaged(Pageable pageable);
+    Page<StockDto> getAllStocksPaged(int pageNo, int pageSize, String direction, String sortBy );
 }
